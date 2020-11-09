@@ -7,6 +7,7 @@
   "devDependencies": {
     "@openzeppelin/test-environment": "^0.1.6",
     "@openzeppelin/test-helpers": "^0.5.9",
+    "@truffle/hdwallet-provider": "^1.2.0",
     "chai": "^4.2.0",
     "eslint": "^7.12.1",
     "eslint-config-standard": "^16.0.0",
@@ -20,5 +21,8 @@
     "prettier": "^2.1.2",
     "prettier-plugin-solidity": "^1.0.0-alpha.59",
     "solhint": "^3.3.1"
+  },
+  "dependencies": {
+    "dotenv": "^8.2.0"
   }
 }
