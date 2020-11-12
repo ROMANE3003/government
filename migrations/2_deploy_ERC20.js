@@ -1,6 +1,6 @@
 // CitizenERC20 is an artifact of the CitizenERC20 contract
 const CitizenERC20 = artifacts.require('CitizenERC20');
-const { BN } = require('@openzeppelin/test-helpers');
+const BN = web3.utils.BN;
 
 module.exports = async (deployer) => {
   await deployer.deploy(

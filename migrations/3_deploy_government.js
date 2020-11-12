@@ -2,7 +2,7 @@
 const CitizenERC20 = artifacts.require('CitizenERC20');
 // Government is an artifact of the Government contract
 const Government = artifacts.require('Government');
-const { BN } = require('@openzeppelin/test-helpers');
+const BN = web3.utils.BN;
 
 module.exports = async (deployer) => {
   await deployer.deploy(

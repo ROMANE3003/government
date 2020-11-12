@@ -66,7 +66,7 @@ contract Government {
     uint256 private _mandateDuration = 8 weeks;
     uint256 private _electionsDuration = 1 weeks;
     uint256 private _nbMinimumVotesToGetElected = 5;
-    uint256 private _denomination = 10**uint256(token.decimals());
+    uint256 private _denomination;
     uint256 private _smallPunishment = 5 * _denomination;
     uint256 private _moderatePunishment = 50 * _denomination;
     uint256 private _seriousPunishment = 100 * _denomination;
@@ -89,11 +89,16 @@ contract Government {
     /// @dev health status options using enum type: 0 -> HealthStatus.Died, 1 -> HealthStatus.Healthy, 2 -> HealthStatus.Sick
     enum HealthStatus {Died, Healthy, Sick}
 
-    constructor(address _tokenAddress, address payable _sovereign, uint256 _price) public {
+    constructor(
+        address _tokenAddress,
+        address payable _sovereign,
+        uint256 _price
+    ) public {
         token = CitizenERC20(_tokenAddress); //contract CitizenERC20 deployed at 0x325525BE92FCdD9061f953E6Cf5a720C5a265982
-        sovereign = _sovereign;//token.getOwner();
+        sovereign = _sovereign; //token.getOwner();
         //price for 1 full CTZ (10^18 tokens) in wei : 10**16 or 0.01 ether or 10000000000000000
         price = _price;
+        _denomination = 10**uint256(token.decimals());
     }
 
     //Modifiers
